@@ -1,0 +1,27 @@
+<p>
+  user works!
+</p>
+
+<div class="panel-body">
+  <div class="row">
+    <div class="input-field col s12">
+      <input [(ngModel)]="student.fname" id="fname" type="" class="validate" placeholder="fname">
+      <input [(ngModel)]="student.lname" id="lname" type="" class="validate" placeholder="lname">
+      <input [(ngModel)]="student.rollno" id="rollno" type="" class="validate" placeholder="rollno">
+      <input [(ngModel)]="student.marks" id="marks" type="" class="validate" placeholder="marks">
+    </div>
+  </div>
+  <hr/>
+  <div class="btn-group">
+    <button type="" class="btn btn-primary" (click)="addStudent()">Add Student</button>
+    <button type="submit" class="btn btn-primary" (click)="test()">POST</button>
+    <button type="" class="btn btn-primary" (click)="gettest()">GET</button>
+  </div>
+  <div *ngIf='students'>
+    <div *ngFor="let s of students">
+      <label>id: {{s.Sid}} Name: {{s.fname}} {{s.lname}}</label>
+      
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="title">
+        Welcome {{name}} !!!
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="input-field col s12">
+                <input [(ngModel)]="user.UserName" id="UserName" type="email" class="validate">
+                <label for="UserName">UserName</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input [(ngModel)]="user.Password" id="Password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+
+        <span>{{password}}
+            <br/>
+        </span>
+        <span>{{name}}
+            <br/>
+        </span>
+        <span>{{errorMsg}}</span>
+        <div class="btn-group">
+            <button (click)="login()" class="btn btn-primary" type="submit" name="action">Login</button>
+
+            <button (click)="get()" class="btn btn-primary waves-light">GET</button>
+        </div>
+        <!-- 
+          <div *ngIf="apiValues != null">
+          <label>api : {{apiValues}}</label>
+          </div>
+          -->
+        <div *ngFor="let u of users">
+            <!-- 
+          <label>user name : {{u.UserName}}</label><br/>
+          <label>password : {{u.Password}}</label> 
+        -->
+
+            <div *ngIf="u.UserName == user.UserName && u.Password == user.Password; then success else tryagain">
+
+            </div>
+
+
+            <ng-template #tryagain>Please try again login to continue.</ng-template>
+            <ng-template #success>
+                <label>SUCCESS</label>
+                Hi {{u.UserName}},
+                <button routerLink="user" class="btn btn-primary">Logout now</button>
+
+            </ng-template>
+
+
+
+        </div>
+
+
+    </div>
+</div>

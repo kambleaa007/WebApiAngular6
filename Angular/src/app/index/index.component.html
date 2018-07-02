@@ -1,0 +1,25 @@
+<nav class="navbar">
+    <div class="container">
+        <a class="navbar-brand">Angular Router</a>
+        <ul class="nav navbar-nav" routerLinkActive="">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="user">User</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['login/user',
+                                         {outlets: 
+                                            {Student1: ['addStudent'],
+                                            Student2: ['editStudent']}
+                                        }]">User Home</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
